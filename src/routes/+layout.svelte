@@ -62,14 +62,9 @@
 	<slot />
 </main>
 
-
-<footer class="fixed inset-x-0 bottom-0">
-	<div class="container px-6 py-8 mx-auto">
-		<div class="flex flex-col items-center justify-between md:flex-row">
-			<div class="flex items-center justify-center space-x-4">
-				<p>Made with 💗</p>
-			</div>
-		</div>
+<!-- Footer to allign in middle and fixed at bottom of page ( only text)-->
+<footer class="fixed inset-x-0 bottom-0 flex justify-center items-center h-16 bg-white text-black">
+	<div class="text-center">
+		<p class="text-sm"> Made with 💗 </p>
 	</div>
 </footer>
-
