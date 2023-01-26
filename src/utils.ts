@@ -1,8 +1,11 @@
 const IV = "765575f17de159ca0c0f51cf10ac7bd0";
 
+const PROD_URL = "https://encryption-software.vercel.app"
+const ENDPOINT = process.env.NODE_ENV === 'production' ? PROD_URL : 'http://localhost:3000';
+
 async function aes256encrypt(text: string, key: string) {
     const res = await Promise.resolve(
-        fetch('http://localhost:3000/api/encrypt', {
+        fetch(ENDPOINT + '/api/encrypt', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
