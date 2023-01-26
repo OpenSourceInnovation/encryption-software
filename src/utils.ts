@@ -1,3 +1,5 @@
+const IV = "765575f17de159ca0c0f51cf10ac7bd0";
+
 async function aes256encrypt(text: string, key: string) {
     const res = await Promise.resolve(
         fetch('http://localhost:3000/api/encrypt', {
@@ -5,7 +7,7 @@ async function aes256encrypt(text: string, key: string) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ data: text, key })
+            body: JSON.stringify({ message: text, key, iv: IV })
         })
     )
     // convert to string

@@ -14,10 +14,10 @@
 		if (useRandomKey) {
 			key = randomKey;
 		}
-		// aes256encrypt(text, key).then((res) => {
-		// 	responseText = res;
-		// 	reposArrived = true;
-		// });
+		aes256encrypt(text, key).then((res) => {
+			responseText = res;
+			reposArrived = true;
+		});
 	}
 
 	function genRandomKey() {
