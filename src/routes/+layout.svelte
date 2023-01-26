@@ -62,6 +62,14 @@
 	<slot />
 </main>
 
+
 <footer class="fixed inset-x-0 bottom-0">
-	<p class="content-center text-sm text-gray-800">Made with ❤️‍🔥</p>
+	<div class="container px-6 py-8 mx-auto">
+		<div class="flex flex-col items-center justify-between md:flex-row">
+			<div class="flex items-center justify-center space-x-4">
+				<p>Made with 💗</p>
+			</div>
+		</div>
+	</div>
 </footer>
+
