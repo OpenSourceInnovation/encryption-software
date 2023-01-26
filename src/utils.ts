@@ -18,4 +18,20 @@ async function aes256encrypt(text: string, key: string) {
     return json.encrypted;
 }
 
-export { aes256encrypt };
+async function aes256decrypt(text: string, key: string) {
+    const res = await Promise.resolve(
+        fetch(ENDPOINT + '/api/decrypt', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: text, key, iv: IV })
+        })
+    )
+    // convert to string
+    const json = await res.json();
+    return json.decrypted;
+}
+
+
+export { aes256encrypt, aes256decrypt };
