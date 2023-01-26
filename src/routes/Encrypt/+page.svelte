@@ -35,7 +35,7 @@
 
 <div class="my-auto p-16 rounded-lg text-center grid grid-row-2 gap-2">
 	<input
-		class="w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
+		class="w-full my-4 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
 		bind:value={text}
 		placeholder="Enter text to encrypt"
 	/>
@@ -49,7 +49,7 @@
 
 	{#if useRandomKey}
 		<input
-			class="w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
+			class="w-full my-4 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
 			bind:value={randomKey}
 			placeholder="Enter key"
 		/>
@@ -59,7 +59,7 @@
 	<input
 		bind:value={algorithm}
 		disabled
-		class="w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
+		class="w-full my-4 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
 		placeholder="Enter algorithm"
 	/>
 
@@ -71,7 +71,7 @@
 
 	{#if reposArrived}
 		<input
-			class="w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
+			class=" w-full my-8 px-6 py-4 text-xl rounded-lg border-0 focus:ring-2 focus:ring-gray-800 transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:shadow-xl shadow-md"
 			bind:value={responseText}
 			placeholder="Response Text Goes here "
 		/>
