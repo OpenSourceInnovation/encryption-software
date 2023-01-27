@@ -1,7 +1,8 @@
 import { writable, get } from 'svelte/store';
 import { sdk, server } from './appwrite';
 import { ID, Permission, Role } from 'appwrite';
-import { Models } from 'appwrite';
+import type { Models } from 'appwrite';
+import { createEventDispatcher } from 'svelte';
 
 export type History = {
 	txt: string;
@@ -36,6 +37,7 @@ const createHistory = () => {
 			const docs = await sdk.database.listDocuments<History>(server.database, server.collection);
 			return set(docs.documents);
 		}
+		
 	};
 };
 
@@ -52,9 +54,9 @@ const createState = () => {
 		},
 		signup: async (email: string, password: string, name: string) => {
 			await sdk.account.create('unique()', email, password, name);
-            await sdk.account.createEmailSession(email, password);
-            const user = await sdk.account.get();
-            state.init(user);
+			await sdk.account.createEmailSession(email, password);
+			const user = await sdk.account.get();
+			state.init(user);
 		},
 		login: async (email: string, password: string) => {
 			await sdk.account.createEmailSession(email, password);
@@ -71,5 +73,36 @@ const createState = () => {
 	};
 };
 
+const actions = {
+	create: async (file: File) => {
+		try {
+			const user = Role.user(get(state).account.$id);
+			const response = await sdk.storage.createFile(server.bucket, ID.unique(), file, [
+				Permission.read(user),
+				Permission.write(user),
+				Permission.delete(user)
+			]);
+			return response;
+		} catch (error) {
+			console.log(error);
+		}
+	},
+	fetch: async () => {
+		try {
+			const response = await Promise.resolve((sdk.storage.listFiles(server.bucket)));
+			return response;
+		} catch (error) {}
+	},
+	geturl: async ( id: string ) => {
+		try {
+			const url = sdk.storage.getFileDownload(server.bucket, id);
+			return url;
+		} catch (error) {
+			console.log(error);
+		}
+	}
+};
+
 export const state = createState();
 export const history = createHistory();
+export const file = actions;
