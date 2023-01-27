@@ -16,6 +16,7 @@ const createHistory = () => {
 	return {
 		subscribe,
 		add: async (txt: string, method: string, key: string) => {
+			// @ts-ignore
 			const user = Role.user(get(state).account.$id);
 			const history = await sdk.database.createDocument<History>(
 				server.database,
