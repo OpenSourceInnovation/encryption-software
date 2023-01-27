@@ -51,7 +51,10 @@ const createState = () => {
 			return user.name;
 		},
 		signup: async (email: string, password: string, name: string) => {
-			return await sdk.account.create('unique()', email, password, name);
+			await sdk.account.create('unique()', email, password, name);
+            await sdk.account.createEmailSession(email, password);
+            const user = await sdk.account.get();
+            state.init(user);
 		},
 		login: async (email: string, password: string) => {
 			await sdk.account.createEmailSession(email, password);
