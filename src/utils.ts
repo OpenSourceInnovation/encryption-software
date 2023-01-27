@@ -1,6 +1,6 @@
 const IV = '765575f17de159ca0c0f51cf10ac7bd0';
 
-const PROD_URL = 'https://encryption-software.vercel.app';
+const PROD_URL = import.meta.env.VERCEL_URL;
 const ENDPOINT = process.env.NODE_ENV === 'production' ? PROD_URL : 'http://localhost:3000';
 
 async function aes256encrypt(text: string, key: string) {
