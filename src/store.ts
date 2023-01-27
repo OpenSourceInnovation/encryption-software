@@ -76,6 +76,7 @@ const createState = () => {
 const actions = {
 	create: async (file: File) => {
 		try {
+			// @ts-ignore
 			const user = Role.user(get(state).account.$id);
 			const response = await sdk.storage.createFile(server.bucket, ID.unique(), file, [
 				Permission.read(user),
