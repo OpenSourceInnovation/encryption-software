@@ -2,6 +2,9 @@
 
 Software that helps individuals and businesses protect their data by encrypting it, and that allows them to share it securely.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSaicharanKandukuri%2Fencryption-software&env=VITE_APP_ENDPOINT,VITE_APP_PROJECT,VITE_APP_COLLECTION_ID,VITE_APP_DATABASE_ID,VITE_APP_BUCKET_ID&project-name=encryption-software&repository-name=encryption-software-git&demo-title=encryption%20software&demo-description=Software%20that%20helps%20individuals%20and%20businesses%20protect%20their%20data%20by%20encrypting%20it%2C%20and%20that%20allows%20them%20to%20share%20it%20securely.&demo-url=https%3A%2F%2Fencryption-software.vercel.app%2F&demo-image=https%3A%2F%2Fuser-images.githubusercontent.com%2F68287637%2F215053221-bc249a0a-9f17-4491-a152-54a01dee49e4.png)
+
+
 ## Product Requirements
 
 ## Frontend:
