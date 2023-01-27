@@ -38,7 +38,6 @@ const createHistory = () => {
 			const docs = await sdk.database.listDocuments<History>(server.database, server.collection);
 			return set(docs.documents);
 		}
-		
 	};
 };
 
@@ -91,11 +90,11 @@ const actions = {
 	},
 	fetch: async () => {
 		try {
-			const response = await Promise.resolve((sdk.storage.listFiles(server.bucket)));
+			const response = await Promise.resolve(sdk.storage.listFiles(server.bucket));
 			return response;
 		} catch (error) {}
 	},
-	geturl: async ( id: string ) => {
+	geturl: async (id: string) => {
 		try {
 			const url = sdk.storage.getFileDownload(server.bucket, id);
 			return url;
