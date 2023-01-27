@@ -70,7 +70,7 @@
 					<a class="underline text-gray-800 hover:text-blue-400" href="/">Home</a>
 					{#if loggedIn}
 						<a class="underline text-gray-800 hover:text-blue-400" href="/Encrypt">Encrypt</a>
-						<a class="underline text-gray-800 hover:text-blue-400" href="/Encrypt">Decrypt</a>
+						<a class="underline text-gray-800 hover:text-blue-400" href="/Decrypt">Decrypt</a>
 						<p
 							class="underline text-gray-800 hover:text-blue-400"
 							on:click={logout}
