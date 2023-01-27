@@ -1,6 +1,7 @@
 <script>
 	import '../../app.css';
 	import { aes256encrypt } from '../../utils';
+	import { state, history } from '../../store';
 
 	let text = '';
 	let key = '';
@@ -9,6 +10,13 @@
 	let responseText = '';
 	let useRandomKey = false;
 	let randomKey = genRandomKey();
+	let loggedIn = false;
+
+	state.subscribe((value) => {
+		if (value.account !== null) {
+			loggedIn = true;
+		}
+	});
 
 	function _encrypt() {
 		if (useRandomKey) {
@@ -18,7 +26,21 @@
 			responseText = res;
 			reposArrived = true;
 		});
+
+		// if logged in start taking history
+		historyAdd();
 	}
+
+	const historyAdd = async () => {
+		if (loggedIn) {
+			try {
+				await history.add(responseText, 'encrypt', key);
+				console.log('history added successfully..');
+			} catch (err) {
+				console.log(err);
+			}
+		}
+	};
 
 	function genRandomKey() {
 		// generate a random string of 32 bytes

@@ -1,8 +1,26 @@
 <script>
 	import '../app.css';
+	import { state } from '../store';
 
 	// import '../styles/global.css';
 	let showMenu = false;
+	let loggedIn = false;
+
+	state.subscribe((value) => {
+		if (value.account !== null) {
+			loggedIn = true;
+		}
+	});
+
+	const logout = async () => {
+		try {
+			await state.logout();
+		} catch (err) {
+			console.log(err);
+		} finally {
+			state.init(null);
+		}
+	};
 
 	function toggleNavbar() {
 		showMenu = !showMenu;
@@ -50,9 +68,20 @@
 						: 'hidden'}"
 				>
 					<a class="underline text-gray-800 hover:text-blue-400" href="/">Home</a>
-					<a class="underline text-gray-800 hover:text-blue-400" href="/Encrypt">Encrypt</a>
-					<a class="underline text-gray-800 hover:text-blue-400" href="/Decrypt">Decrypt</a>
-					<a class="underline text-gray-800 hover:text-blue-400" href="/about">About Us</a>
+					{#if loggedIn}
+						<a class="underline text-gray-800 hover:text-blue-400" href="/Encrypt">Encrypt</a>
+						<a class="underline text-gray-800 hover:text-blue-400" href="/Encrypt">Decrypt</a>
+						<p
+							class="underline text-gray-800 hover:text-blue-400"
+							on:click={logout}
+							on:keydown={logout}
+						>
+							Logout
+						</p>
+					{:else}
+						<a class="underline text-gray-800 hover:text-blue-400" href="/Login">Login</a>
+						<a class="underline text-gray-800 hover:text-blue-400" href="/SignUp">Register</a>
+					{/if}
 				</div>
 			</nav>
 		</div>
@@ -63,8 +92,8 @@
 </main>
 
 <!-- Footer to allign in middle and fixed at bottom of page ( only text)-->
-<footer class="fixed inset-x-0 bottom-0 flex justify-center items-center h-16 bg-white text-black">
+<footer class="fixed inset-x-0 bottom-0 flex justify-center items-center h-6 bg-white">
 	<div class="text-center">
-		<p class="text-sm"> Made with 💗 </p>
+		<p class="text-sm text-gray-600">Made with 💗</p>
 	</div>
 </footer>
