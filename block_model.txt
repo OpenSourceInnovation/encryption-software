@@ -1,0 +1,30 @@
++-------------+    +-------------+    +-------------+    +-------------+
+|  User       |    | Frontend    |    | Backend     |    | Appwrite API|
+|             |    | (Svelte)    |    | (VERCEL)   |    |             |
++-------------+    +-------------+    +-------------+    +-------------+
+       |                 |                    |                       |
+       | Signup/Login    |                    |                       |
+       |---------------->|                    |                       |
+       |                 | User Management    |                       |
+       |                 |------------------->|                       |
+       |                 |                    |                       |
+       |                 |                    | JWT token             |
+       |                 |                    |<-----------------------+
+       |                 |                    |                       |
+       |                 |                    | File upload           |
+       |                 |                    |----------------------->|
+       |                 |                    |                       |
+       |                 |                    | File download         |
+       |                 |                    |<-----------------------+
+       |                 |                    |                       |
+       |                 |                    | Data storage          |
+       |                 |                    |<-----------------------+
+
+-> Frontend Svelte
+-> Backend Node.js server takes care of
+       - User management
+       - File upload
+       - File download
+       - Data storage
+       - Data encryption methods
+-> Appwrite API is used to manage users, files and data storage.
